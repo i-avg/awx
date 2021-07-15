@@ -1,0 +1,10 @@
+- name:  Wait while 5985 is accesible
+  hosts: all
+  gather_facts: false
+  tasks:
+    
+    - name: Wait until port 5985 is offline but try every 20 seconds
+      win_wait_for:
+        port: 5985
+        state: present
+        sleep: 20
